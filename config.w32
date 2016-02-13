@@ -1,0 +1,21 @@
+// $Id: $
+// vim:ft=javascript
+
+ARG_ENABLE("mediainfo", "MediaInfo support", "no");
+
+if (PHP_MEDIAINFO == "yes") {
+    AC_DEFINE("EXT_MEDIAINFO",1,"");
+    //AC_DEFINE("_WIN32_WINNT",0x0501,"");
+    //AC_DEFINE("BOOST_LIB_DIAGNOSTIC",1,"");
+    //AC_DEFINE("_UNICODE",1,"");
+
+    //CHECK_LIB("libboost_system-vc90-mt-1_53.lib", "mediainfo", PHP_MEDIAINFO);
+    //CHECK_LIB("libboost_locale-vc90-mt-1_53.lib", "mediainfo", PHP_MEDIAINFO);
+    
+    EXTENSION("mediainfo","php_mediainfo.cpp",true);
+    ADD_SOURCES(
+      "ext/mediainfo/src",
+      "MediaInfoDLL.cpp", 
+      "mediainfo"
+    );
+}
